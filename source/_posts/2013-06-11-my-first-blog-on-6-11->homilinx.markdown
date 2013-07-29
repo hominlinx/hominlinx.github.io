@@ -3,8 +3,16 @@ layout: post
 title: "my first blog====>>homilinx"
 date: 2013-06-11 23:40
 comments: true
-categories: 
+categories: [summary] 
 ---
-Hello world,welcome my first blog,i use this blog to describe my own view of the Internet,(But not only Internet)..
-^^^^^^^^
-这是我第一次用octopress写文档，对于我这个菜鸟，markdown不会，git不熟，ruby没玩过，但我会坚持，在上海，我将努力努力再努力，拼搏拼搏再拼搏。。。
+
+我使用github进行托管，在这里记录我的一些想法，学习一些IT技术，本博客使用了Octopress，Octopress是一个基于Jekyll的博客生成框架，它是属于Ruby语言范畴
+之内。我想在以下几个方面有些涉及：
+
+<!--more--!>
+
+### C++ Primer
+
+###设计模式
+
+###图形学OpenGL
