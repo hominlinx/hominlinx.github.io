@@ -16,6 +16,12 @@ footer: true
 
 想学web前端（个人爱好，与工作无关）
 
+**Octopress** 帮助：
+
+* rake generate 生成
+* rake preview [本地浏览:](http:127.0.0.1:4000)
+* rake deploy 发布
+
 - 您可以通过如下方式找到我：
 
 **Gmail:** <hominlinx@gmail.com>
