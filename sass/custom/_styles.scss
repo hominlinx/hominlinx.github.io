@@ -1,2 +1,13 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+@media only screen and (min-width: 550px) {
+
+    body > header h1{
+              background: url("/images/monkey.jpg") no-repeat 0 1px;
+                    padding-left: 65px;
+
+    }
+
+      body > header h2 { padding-left: 65px;  }
+
+}
