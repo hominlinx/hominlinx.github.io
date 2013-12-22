@@ -18,11 +18,32 @@ footer: true
 
 **Octopress** 帮助：
 
-* rake generate 生成
+* rake new_post["tilename"]  创建新文章
+* rake generate 生成静态文件
 * rake preview [本地浏览:](http:127.0.0.1:4000)
-* rake deploy 发布
+* rake deploy 发布(部署)
 
-- 您可以通过如下方式找到我：
+## 将文章上传到github上
+```
+git add .
+git commit -m "add soure post"
+git push origin site(site 是本地的一个分支)
+```
+## 仓库说明
+我在github上分为master和site分支，除_deploy目录外的文件上传到site分支。_deploy目录内容上传到master分支上。
+
+##从新电脑上恢复博客内容
+找的博客仓库的url，执行：
+```
+git clone -b site (url)octopress #把site分支克隆到本地octopress目录上
+cd octopress
+git clone (url) _deploy #克隆master分支，它存放着博客内容
+gem install bundler
+bundle install
+rake install
+rake setup_github_pages
+```
+## 您可以通过如下方式找到我：
 
 **Gmail:** <hominlinx@gmail.com>
 
