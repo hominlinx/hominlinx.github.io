@@ -12,4 +12,8 @@
 
 ####使用octopress AND markdown
 
-使用octopress可以看我的 [About](http://hominlinx.github.io/)
+如何使用octopress可以看我的 [About](http://hominlinx.github.io/about/)
+
+如何使用markdown可以参考[Cmd Markdown](https://www.zybuluo.com/mdeditor/note/1317)
+
+
