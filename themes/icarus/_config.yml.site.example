@@ -3,22 +3,23 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hominlinx's blog
+title: Icarus
 subtitle:
-description: a programer.
-author: Hominlinx
-author_title: 'Linuxer and Geek'
-avatar: css/images/avatar.jpg
-location: 'Shanghai, China'
-language: zh-CN
+description: Hexo theme - Icarus
+author: PPOffice
+author_title: 'Web Developer & Designer'
+avatar: css/images/avatar.png
+location: 'Harbin, China'
+follow: https://github.com/ppoffice/
+language: en
 timezone:
-follow: https://github.com/hominlinx
+since: 2000 # The start year showing in your copyright section.
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hominlinx.github.io/
-root: /
-permalink: blog/:year-:month-:day-:title.html
+url: http://ppoffice.github.io/hexo-theme-icarus
+root: /hexo-theme-icarus/
+permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
@@ -44,7 +45,6 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -61,15 +61,24 @@ time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 10
+per_page: 6
 pagination_dir: page
 
 # Extensions
-## Plugins: http://hexo.io/plugins/
-## Themes: http://hexo.io/themes/
+## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
+## Themes: https://github.com/hexojs/hexo/wiki/Themes
 theme: icarus
+
+# Disqus
+# disqus_shortname: hexo-theme-icarus
+
+# DuoShuo
+# duoshuo_shortname: hexo-theme-icarus
+
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: https://github.com/ppoffice/hexo-theme-icarus.git
+  branch: gh-pages
