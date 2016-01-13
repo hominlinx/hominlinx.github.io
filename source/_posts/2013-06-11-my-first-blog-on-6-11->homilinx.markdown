@@ -27,4 +27,4 @@ categories: [summary]
 
 *坚持就是胜利* 
 
-![我的图片](/images/yuanguang.JPG)
+![我的图片](http://7xq2es.com1.z0.glb.clouddn.com/blogyuanguang.JPG)
