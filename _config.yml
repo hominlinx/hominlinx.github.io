@@ -5,19 +5,20 @@
 # Site
 title: Hominlinx's blog
 subtitle:
-description: a programer.
+description: my blog is for sharing to everyone.
 author: Hominlinx
 author_title: 'Linuxer and Geek'
-avatar: css/images/avatar.jpg
+avatar: css/images/monkey.jpg
 location: 'Shanghai, China'
 language: zh-CN
-timezone:
 follow: https://github.com/hominlinx
+timezone:
+since: 2015 # The start year showing in your copyright section.
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hominlinx.github.io/
-root: /
+url: http://hominlinx.github.io/blog
+root: /blog/
 permalink: blog/:year-:month-:day-:title.html
 permalink_defaults:
 
@@ -69,7 +70,12 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 theme: icarus
 
+# Disqus
+disqus_shortname: hominlinx
+
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+    type: git
+    repo: git@github.com:hominlinx/hominlinx.github.io.git
+    branch: master

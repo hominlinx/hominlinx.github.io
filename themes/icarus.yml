@@ -1,0 +1,50 @@
+# Logo
+logo: 
+
+# Header
+menu:
+  Home: .
+  Archives: archives
+  Categories: categories
+  Tags: tags
+  About: about
+
+# Content
+excerpt_link: 继续阅读
+fancybox: true
+
+# Profile
+profile: true # whether to show profile bar
+gravatar: false # whether to use gravatar with the email
+showlogo: false # whether to show the logo in the header
+
+# Sidebar
+sidebar: right # set to false if you don't want a sidebar
+widgets:
+- recent_posts
+- category
+- tagcloud
+- archive
+thumbnail: false
+
+# Contacts
+contacts:
+  stack-overflow: http://stackoverflow.com/users/2555434/hominlinx
+  zhihu: https://www.zhihu.com/people/yuan-guang-2
+  #twitter: http://twitter.com/
+  #facebook: http://facebook.com/
+  weibo: http://www.weibo.com/hominlinx
+  rss: atom.xml
+
+# Links
+links:
+  Hexo: http://hexo.io
+  另一个blog: http://monkey.gitcafe.io
+
+# Miscellaneous
+google_analytics:
+favicon: favicon.png
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:

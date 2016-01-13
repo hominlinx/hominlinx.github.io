@@ -1,9 +1,14 @@
 {
-  "name": "hexo-site",
+  "name": "hominlinx-site",
   "version": "0.0.0",
   "private": true,
   "hexo": {
     "version": "3.1.1"
+  },
+  "scripts": {
+      "icarus": "cp themes/icarus.yml themes/icarus/_config.yml",
+      "start": "npm run icarus; hexo clean; hexo server",
+      "deploy": "npm run icarus; hexo clean; hexo generate --deploy"
   },
   "dependencies": {
     "hexo": "^3.1.0",
@@ -14,6 +19,7 @@
     "hexo-renderer-ejs": "^0.1.0",
     "hexo-renderer-stylus": "^0.3.0",
     "hexo-renderer-marked": "^0.2.4",
-    "hexo-server": "^0.1.2"
+    "hexo-server": "^0.1.2",
+    "hexo-deployer-git": "0.0.4"
   }
 }
