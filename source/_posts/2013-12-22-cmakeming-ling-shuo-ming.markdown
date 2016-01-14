@@ -4,7 +4,14 @@ title: "Cmake命令说明"
 date: 2013-12-22 10:19
 comments: true
 categories: cmake
+tags: [技术, makefile]
 ---
+
+cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考[cmake 命令](https://cmake.org/cmake/help/v2.8.10/cmake.html#section_Commands)，
+
+
+------------
+
 
 由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。
 cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。
