@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Google protobuf 的说明 | Hominlinx&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络
+Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。
+Protobuf 现在最新的是2.5，在这里可以下载。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google protobuf 的说明">
+<meta property="og:url" content="http://hominlinx.github.io/blog/2013-10-19-2013-10-19-google-protobuf.html">
+<meta property="og:site_name" content="Hominlinx's blog">
+<meta property="og:description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络
+Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。
+Protobuf 现在最新的是2.5，在这里可以下载。">
+<meta property="og:updated_time" content="2016-01-13T07:07:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google protobuf 的说明">
+<meta name="twitter:description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络
+Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。
+Protobuf 现在最新的是2.5，在这里可以下载。">
+  
+    <link rel="alternative" href="/atom.xml" title="Hominlinx&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xq2es.com1.z0.glb.clouddn.com/blogmonkey.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xq2es.com1.z0.glb.clouddn.com/blogmonkey.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Hominlinx</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hominlinx" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://wibo.com/hominlinx" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yuan-guang-2" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">喜欢Linux， 热爱开源</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Hominlinx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xq2es.com1.z0.glb.clouddn.com/blogmonkey.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Hominlinx</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hominlinx" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://wibo.com/hominlinx" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yuan-guang-2" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2013-10-19-google-protobuf" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2013-10-19-2013-10-19-google-protobuf.html" class="article-date">
+  	<time datetime="2013-10-19T01:55:00.000Z" itemprop="datePublished">2013-10-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Google protobuf 的说明
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Google-C/">Google C++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>进入公司后，发现公司的不同模块之间的数据传输是google的<a href="http://code.google.com/p/protobuf/" target="_blank" rel="external">protobuf</a>，所以用该博客去学习一下这个玩意。<code>Note：本文多源于网络</code></p>
+<p>Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。</p>
+<p>Protobuf 现在最新的是2.5，在<a href="http://code.google.com/p/protobuf/downloads/list" target="_blank" rel="external">这里</a>可以下载。</p>
+<h4 id="Protobuf_u5982_u4F55_u5DE5_u4F5C"><a href="#Protobuf_u5982_u4F55_u5DE5_u4F5C" class="headerlink" title="Protobuf如何工作"></a>Protobuf如何工作</h4><p>Protobuf使用<code>.proto</code>文件定义需要做串行化的数据结构信息。每一个ProtocolBuffer信息是一小段逻辑记录，包含一系列的键值对。  如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package tutorial;</span><br><span class="line"></span><br><span class="line">message Person &#123;</span><br><span class="line">    required string name = <span class="number">1</span>;</span><br><span class="line">    required int32 id = <span class="number">2</span>;</span><br><span class="line">    optional string email = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    enum PhoneType &#123;</span><br><span class="line">        MOBILE = <span class="number">0</span>;</span><br><span class="line">        HOME;</span><br><span class="line">        WORK;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    message PhoneNumber &#123;</span><br><span class="line">        required string number = <span class="number">1</span>;</span><br><span class="line">        optional PhoneType type = <span class="number">2</span>[default = HOME];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    repeated PhoneNumber phone = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message AddressBook &#123;</span><br><span class="line">    repeated Person person = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上段代码中可以看到：</p>
+<ol>
+<li>字段类型：bool,int32,float,double,string,enum,自定义的类型</li>
+<li>消息嵌套</li>
+<li>字段前缀：required(必须的),optional(可选的),repeated(可重复的)</li>
+<li>package为这个协议的命名空间</li>
+<li>可以通过<code>protoc --cpp_out=. message.proto</code>生成解析类。</li>
+</ol>
+<p>计划使用Cmake将protoc集成进去。还有ProtoRPC,就是使用protobuf实现RPC(Remote Procedure Call Protocol–远程过程调用协议),这是一种通过网络从远程计算机程序上请求服务，而不需要了解底层的网络技术协议。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2013-12-22-2013-12-22-cmakeming-ling-shuo-ming.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Cmake命令说明
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2013-10-13-2013-10-13-my-vim-tips.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">my vim 设置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hominlinx'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Hominlinx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

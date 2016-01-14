@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Cmake命令说明 | Hominlinx&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，
+
+由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。
+一个C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cmake命令说明">
+<meta property="og:url" content="http://hominlinx.github.io/blog/2013-12-22-2013-12-22-cmakeming-ling-shuo-ming.html">
+<meta property="og:site_name" content="Hominlinx's blog">
+<meta property="og:description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，
+
+由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。
+一个C">
+<meta property="og:updated_time" content="2016-01-14T03:06:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cmake命令说明">
+<meta name="twitter:description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，
+
+由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。
+一个C">
+  
+    <link rel="alternative" href="/atom.xml" title="Hominlinx&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xq2es.com1.z0.glb.clouddn.com/blogmonkey.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xq2es.com1.z0.glb.clouddn.com/blogmonkey.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Hominlinx</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hominlinx" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://wibo.com/hominlinx" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yuan-guang-2" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">喜欢Linux， 热爱开源</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Hominlinx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xq2es.com1.z0.glb.clouddn.com/blogmonkey.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Hominlinx</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hominlinx" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://wibo.com/hominlinx" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yuan-guang-2" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2013-12-22-cmakeming-ling-shuo-ming" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/2013-12-22-2013-12-22-cmakeming-ling-shuo-ming.html" class="article-date">
+  	<time datetime="2013-12-22T02:19:00.000Z" itemprop="datePublished">2013-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cmake命令说明
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/makefile/">makefile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/cmake/">cmake</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考<a href="https://cmake.org/cmake/help/v2.8.10/cmake.html#section_Commands" target="_blank" rel="external">cmake 命令</a>，</p>
+<hr>
+<p>由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。<br>cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。</p>
+<p>一个CMakeLists.txt的例子：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#demo build</span></span><br><span class="line"><span class="keyword">PROJECT</span>(OgreDemo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_MODULE_PATH <span class="string">"/usr/local/lib/OGRE/cmake;$&#123;CMAKE_MODULE_PATH&#125;"</span>)</span><br><span class="line"><span class="keyword">set</span>(OGRE_SAMPLES_INCLUDEPATH <span class="string">"/usr/local/share/OGRE/samples/Common/include/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OGRE REQUIRED)</span><br><span class="line"><span class="keyword">find_package</span>(OIS REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(HDRS ./EnvMapping.h)</span><br><span class="line"><span class="keyword">set</span>(SRCS ./EnvMapping.cpp)</span><br><span class="line"><span class="keyword">include_directories</span>( <span class="envvar">$&#123;OIS_INCLUDE_DIRS&#125;</span></span><br><span class="line">            <span class="envvar">$&#123;OGRE_INCLUDE_DIRS&#125;</span></span><br><span class="line">            <span class="envvar">$&#123;OGRE_SAMPLES_INCLUDEPATH&#125;</span></span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(OgreDemo <span class="envvar">$&#123;HDRS&#125;</span> <span class="envvar">$&#123;SRCS&#125;</span>)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(OgreDemo <span class="envvar">$&#123;OGRE_LIBRARIES&#125;</span> <span class="envvar">$&#123;OIS_LIBRARIES&#125;</span>)</span><br><span class="line">file(<span class="keyword">MAKE_DIRECTORY</span> <span class="envvar">$&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span>/dist/bin)</span><br><span class="line">file(<span class="keyword">MAKE_DIRECTORY</span> <span class="envvar">$&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span>/dist/media)</span><br><span class="line"><span class="keyword">Message</span>(<span class="string">"Hominlinx--&gt;$&#123;PROJECT_BINARY_DIR&#125;\n"</span>)</span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_OUTPUT_PATH <span class="envvar">$&#123;PROJECT_BINARY_DIR&#125;</span>/dist/bin)</span><br><span class="line">``` </span><br><span class="line">里面主要包含了Cmake的变量，cmake命令等。</span><br><span class="line">```bash</span><br><span class="line"><span class="keyword">project</span>(projectname) <span class="comment">#这个执行是用来定义工程的名称。这个指令也隐含了两个cmake变量：&lt;projectname&gt;_binary_dir以及&lt;projectname&gt;_source_dir,这两个变量指的是当前工程的路径。</span></span><br><span class="line"><span class="keyword">set</span>(SRCS XXX) <span class="comment">#设置变量</span></span><br><span class="line"><span class="keyword">include_directories</span>() <span class="comment">#指定文件的搜索路径，相当于gcc的-I参数</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>() <span class="comment">#包含子目录</span></span><br><span class="line"><span class="keyword">add_executable</span>() <span class="comment">#编译可执行程序，指定编译</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>() <span class="comment">#指定链接库</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2013-10-19-2013-10-19-google-protobuf.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Google protobuf 的说明</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hominlinx'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Hominlinx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
