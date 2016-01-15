@@ -1,4 +1,15 @@
+layout: post
 title: {{ title }}
 date: {{ date }}
-tags:
+updated: {{ date }}
+comments: true
+categries: [  ]
+tags: [  ]
+toc:
+original:
+permallink:
+fancybox:
 ---
+
+------
+main body.
