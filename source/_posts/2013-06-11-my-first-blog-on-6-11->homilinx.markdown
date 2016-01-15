@@ -11,6 +11,8 @@ categories: [summary]
 
 <!--more--!>
 
+<!--more-->
+
 ####git的学习
 - 主要参考：
 

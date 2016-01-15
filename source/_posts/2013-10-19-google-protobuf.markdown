@@ -8,6 +8,8 @@ categories: Google C++
 
 进入公司后，发现公司的不同模块之间的数据传输是google的[protobuf](http://code.google.com/p/protobuf/)，所以用该博客去学习一下这个玩意。`Note：本文多源于网络`
 
+<!--more-->
+
 
 Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。
 

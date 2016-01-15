@@ -9,6 +9,8 @@ tags: [技术, makefile]
 
 cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考[cmake 命令](https://cmake.org/cmake/help/v2.8.10/cmake.html#section_Commands)，
 
+<!--more-->
+
 
 ------------
 

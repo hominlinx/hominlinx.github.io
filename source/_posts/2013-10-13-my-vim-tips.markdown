@@ -8,6 +8,8 @@ categories: Vim
 
 现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的[vimrc](https://github.com/hominlinx/vim)。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。
 
+<!--more-->
+
 ### 快捷键
 
 ```
