@@ -227,21 +227,6 @@
         <hr>
 <p>linux 有三个系统级别的文件描述符：0（标准输入）,1（标准输出）,2（标准错误）。可以理解为linux跟踪打开文件，而分配的一个数字，这个数字有点类似c语言操作文件时候的句柄，通过句柄就可以实现文件的读写操作。 用户可以自定义文件描述符范围是：3-num,这个最大数字，跟用户的：ulimit –n 定义数字有关系，不能超过最大值。<br>一条shell命令执行，都会继承父进程的文件描述符。因此所有运行shell命令都会默认3个文件描述符。</p>
 <hr>
-<h4 id="u8F93_u51FA_u91CD_u5B9A_u5411"><a href="#u8F93_u51FA_u91CD_u5B9A_u5411" class="headerlink" title="输出重定向"></a>输出重定向</h4><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="command"><span class="keyword">command</span>-line1 [<span class="title">1-n</span>] &gt; <span class="title">file</span>或文件操作符或设备</span></span><br></pre></td></tr></table></figure>
-<p>上面命令意思是：将一条命令执行结果（标准输出，或者错误输出，本来都要打印到屏幕上面的）  重定向其它输出设备（文件，打开文件操作符，或打印机等等）1,2分别是标准输出，错误输出。有几点需要注意(有几点是重复的)：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1.</span> &amp;[n] 代表是已经存在的文件描述符，&amp;<span class="number">1</span> 代表输出 &amp;<span class="number">2</span>代表错误输出 &amp;-代表关闭与它绑定的描述符</span><br><span class="line"><span class="number">2.</span> /dev/null 这个设备，是linux中黑洞设备，什么信息输出到这个设备，都会吃掉</span><br><span class="line"><span class="number">3.</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> 重定向<span class="built_in">stderr</span>到<span class="built_in">stdout</span>. 将错误消息的输出, 发送到与标准输出所指向的地方.</span><br><span class="line"><span class="number">4.</span>  i&gt;&amp;j 重定向文件描述符i到j. 向i文件的所有输出都发送到j.</span><br><span class="line"><span class="number">5.</span>  `&gt;&amp;j` 默认的, 重定向文件描述符<span class="number">1</span>(<span class="built_in">stdout</span>)到j. 所有传递到<span class="built_in">stdout</span>的输出都送到j中去</span><br><span class="line"><span class="number">6.</span>  &amp;&gt; 等如 <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="u8F93_u5165_u91CD_u5B9A_u5411"><a href="#u8F93_u5165_u91CD_u5B9A_u5411" class="headerlink" title="输入重定向"></a>输入重定向</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">command</span>-<span class="built_in">line</span> &lt; <span class="keyword">file</span>或文件描述符&amp;设备</span><br></pre></td></tr></table></figure>
-<p>将stdin重定向到file，这样本来需要从键盘获取输入的命令会转移到文件读取内容。</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">命令 &lt;&lt; <span class="constant">EOF</span></span><br><span class="line">  内容段</span><br><span class="line"><span class="constant">EOF</span></span><br></pre></td></tr></table></figure>
-<p>将“内容段”整个作为命令的输入<br>两个 EOF 之间的内容(Here Document Content 部分) 传递给cmd 作为输入参数。注意：</p>
-<ul>
-<li>结尾的EOF需要顶格写，前面不能有任何字符，后面也不能有任何字符，包括空格和 tab 缩进。</li>
-<li>开始的EOF前后的空格会被忽略掉。</li>
-</ul>
-<hr>
-<p>####exec绑定重定向</p>
-
       
     </div>
     
@@ -250,6 +235,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/blog/2016-01-15-bash之重定向.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -293,11 +282,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考<a href="https://cmake.org/cmake/help/v2.8.10/cmake.html#section_Commands" target="_blank" rel="external">cmake 命令</a>，</p>
-<hr>
-<p>由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。<br>cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。</p>
-<p>一个CMakeLists.txt的例子：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#demo build</span></span><br><span class="line"><span class="keyword">PROJECT</span>(OgreDemo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_MODULE_PATH <span class="string">"/usr/local/lib/OGRE/cmake;$&#123;CMAKE_MODULE_PATH&#125;"</span>)</span><br><span class="line"><span class="keyword">set</span>(OGRE_SAMPLES_INCLUDEPATH <span class="string">"/usr/local/share/OGRE/samples/Common/include/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OGRE REQUIRED)</span><br><span class="line"><span class="keyword">find_package</span>(OIS REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(HDRS ./EnvMapping.h)</span><br><span class="line"><span class="keyword">set</span>(SRCS ./EnvMapping.cpp)</span><br><span class="line"><span class="keyword">include_directories</span>( <span class="envvar">$&#123;OIS_INCLUDE_DIRS&#125;</span></span><br><span class="line">            <span class="envvar">$&#123;OGRE_INCLUDE_DIRS&#125;</span></span><br><span class="line">            <span class="envvar">$&#123;OGRE_SAMPLES_INCLUDEPATH&#125;</span></span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(OgreDemo <span class="envvar">$&#123;HDRS&#125;</span> <span class="envvar">$&#123;SRCS&#125;</span>)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(OgreDemo <span class="envvar">$&#123;OGRE_LIBRARIES&#125;</span> <span class="envvar">$&#123;OIS_LIBRARIES&#125;</span>)</span><br><span class="line">file(<span class="keyword">MAKE_DIRECTORY</span> <span class="envvar">$&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span>/dist/bin)</span><br><span class="line">file(<span class="keyword">MAKE_DIRECTORY</span> <span class="envvar">$&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span>/dist/media)</span><br><span class="line"><span class="keyword">Message</span>(<span class="string">"Hominlinx--&gt;$&#123;PROJECT_BINARY_DIR&#125;\n"</span>)</span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_OUTPUT_PATH <span class="envvar">$&#123;PROJECT_BINARY_DIR&#125;</span>/dist/bin)</span><br><span class="line">``` </span><br><span class="line">里面主要包含了Cmake的变量，cmake命令等。</span><br><span class="line">```bash</span><br><span class="line"><span class="keyword">project</span>(projectname) <span class="comment">#这个执行是用来定义工程的名称。这个指令也隐含了两个cmake变量：&lt;projectname&gt;_binary_dir以及&lt;projectname&gt;_source_dir,这两个变量指的是当前工程的路径。</span></span><br><span class="line"><span class="keyword">set</span>(SRCS XXX) <span class="comment">#设置变量</span></span><br><span class="line"><span class="keyword">include_directories</span>() <span class="comment">#指定文件的搜索路径，相当于gcc的-I参数</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>() <span class="comment">#包含子目录</span></span><br><span class="line"><span class="keyword">add_executable</span>() <span class="comment">#编译可执行程序，指定编译</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>() <span class="comment">#指定链接库</span></span><br></pre></td></tr></table></figure></p>
-
+        <p>cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考<a href="https://cmake.org/cmake/help/v2.8.10/cmake.html#section_Commands">cmake 命令</a>，</p>
       
     </div>
     
@@ -314,6 +299,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/blog/2013-12-22-2013-12-22-cmakeming-ling-shuo-ming.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -357,21 +346,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>进入公司后，发现公司的不同模块之间的数据传输是google的<a href="http://code.google.com/p/protobuf/" target="_blank" rel="external">protobuf</a>，所以用该博客去学习一下这个玩意。<code>Note：本文多源于网络</code></p>
-<p>Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。</p>
-<p>Protobuf 现在最新的是2.5，在<a href="http://code.google.com/p/protobuf/downloads/list" target="_blank" rel="external">这里</a>可以下载。</p>
-<h4 id="Protobuf_u5982_u4F55_u5DE5_u4F5C"><a href="#Protobuf_u5982_u4F55_u5DE5_u4F5C" class="headerlink" title="Protobuf如何工作"></a>Protobuf如何工作</h4><p>Protobuf使用<code>.proto</code>文件定义需要做串行化的数据结构信息。每一个ProtocolBuffer信息是一小段逻辑记录，包含一系列的键值对。  如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package tutorial;</span><br><span class="line"></span><br><span class="line">message Person &#123;</span><br><span class="line">    required string name = <span class="number">1</span>;</span><br><span class="line">    required int32 id = <span class="number">2</span>;</span><br><span class="line">    optional string email = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    enum PhoneType &#123;</span><br><span class="line">        MOBILE = <span class="number">0</span>;</span><br><span class="line">        HOME;</span><br><span class="line">        WORK;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    message PhoneNumber &#123;</span><br><span class="line">        required string number = <span class="number">1</span>;</span><br><span class="line">        optional PhoneType type = <span class="number">2</span>[default = HOME];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    repeated PhoneNumber phone = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message AddressBook &#123;</span><br><span class="line">    repeated Person person = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上段代码中可以看到：</p>
-<ol>
-<li>字段类型：bool,int32,float,double,string,enum,自定义的类型</li>
-<li>消息嵌套</li>
-<li>字段前缀：required(必须的),optional(可选的),repeated(可重复的)</li>
-<li>package为这个协议的命名空间</li>
-<li>可以通过<code>protoc --cpp_out=. message.proto</code>生成解析类。</li>
-</ol>
-<p>计划使用Cmake将protoc集成进去。还有ProtoRPC,就是使用protobuf实现RPC(Remote Procedure Call Protocol–远程过程调用协议),这是一种通过网络从远程计算机程序上请求服务，而不需要了解底层的网络技术协议。</p>
-
+        <p>进入公司后，发现公司的不同模块之间的数据传输是google的<a href="http://code.google.com/p/protobuf/">protobuf</a>，所以用该博客去学习一下这个玩意。<code>Note：本文多源于网络</code></p>
       
     </div>
     
@@ -384,6 +359,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/blog/2013-10-19-2013-10-19-google-protobuf.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -428,7 +407,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的<a href="https://github.com/hominlinx/vim">vimrc</a>。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。</p>
-<h3 id="u5FEB_u6377_u952E"><a href="#u5FEB_u6377_u952E" class="headerlink" title="快捷键"></a>快捷键</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;C-j&gt; &lt;C-k&gt; &lt;C-h&gt; &lt;C-l&gt; 多窗口移动</span><br><span class="line">H 移动到行的最前端</span><br><span class="line">L 移动到行的最末端</span><br><span class="line">&lt;C-e&gt; &lt;C-y&gt; 移动屏幕</span><br><span class="line">F2 开启或关闭行号显示</span><br><span class="line">F3 开启或关闭不可见字符</span><br><span class="line">F4 开启或关闭换行功能（默认开启）</span><br><span class="line">F5 激活或取消paste模式</span><br><span class="line">F6 激活或取消语法高亮</span><br><span class="line">kj &lt;Esc&gt;,不用去角落里面找esc了</span><br><span class="line">t 在normal模式下，将光标所在行下移一行</span><br><span class="line">T 在normal模式下，将光标所在行上移一行</span><br><span class="line">，p 启动文件搜索功能（使用了插件Ctrlp）</span><br><span class="line">,,f+字符 快速移动（使用了easymotion）</span><br><span class="line">,cc 加上注释 ,cu 解开注释</span><br><span class="line">,gd 代码跳转到声明位置（YCM）</span><br><span class="line">,<span class="literal">a</span>= 按照等号切分格式化</span><br><span class="line"><span class="label">，a:</span> 按照逗号切分格式化</span><br><span class="line">，rp 启动tmux</span><br><span class="line">，vc 关闭vimux</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -545,26 +523,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>我使用github进行托管，在这里记录我的一些想法，学习一些IT技术，本博客使用了Octopress，Octopress是一个基于Jekyll的博客生成框架，它是属于Ruby语言范畴<br>之内。我想在以下几个方面有些涉及：(先表白一下)</p>
-<p>&lt;!–more–!&gt;</p>
-<p>####git的学习</p>
-<ul>
-<li><p>主要参考：</p>
-<ul>
-<li><a href="http://www.yangzhiping.com/tech/github.html" target="_blank" rel="external">如何高效利用github</a><br>#####Note:##### 现在git托管很多很多，如gitshell;cofegit;开源中国的git等等</li>
-<li><a href="http://gitready.com/" target="_blank" rel="external">gitread</a></li>
-</ul>
-</li>
-</ul>
-<p>####设计模式</p>
-<ul>
-<li>python篇</li>
-<li>ruby篇</li>
-<li>c++篇</li>
-</ul>
-<p>####嵌入式相关知识</p>
-<p><em>坚持就是胜利</em> </p>
-<p><img src="http://7xq2es.com1.z0.glb.clouddn.com/blogyuanguang.JPG" alt="我的图片"></p>
-
+<!--more--!>
       
     </div>
     
@@ -577,6 +536,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/blog/2013-06-11-2013-06-11-my-first-blog-on-6-11-homilinx.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

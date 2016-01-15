@@ -6,25 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Cmake命令说明 | Hominlinx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，
-
-由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。
-一个C">
+  <meta name="description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cmake命令说明">
 <meta property="og:url" content="http://hominlinx.github.io/blog/2013-12-22-2013-12-22-cmakeming-ling-shuo-ming.html">
 <meta property="og:site_name" content="Hominlinx's blog">
-<meta property="og:description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，
-
-由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。
-一个C">
-<meta property="og:updated_time" content="2016-01-14T03:06:51.000Z">
+<meta property="og:description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，">
+<meta property="og:updated_time" content="2016-01-15T03:06:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cmake命令说明">
-<meta name="twitter:description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，
-
-由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。
-一个C">
+<meta name="twitter:description" content="cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考cmake 命令，">
   
     <link rel="alternative" href="/atom.xml" title="Hominlinx&#39;s blog" type="application/atom+xml">
   
@@ -248,6 +239,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>cmake 是生成makefile（类unix平台）的一个tool，里面包含了各种命令，具体可以参考<a href="https://cmake.org/cmake/help/v2.8.10/cmake.html#section_Commands" target="_blank" rel="external">cmake 命令</a>，</p>
+<a id="more"></a>
 <hr>
 <p>由于最近学习ogre，而ogre的组织采用cmake编译生成makefile，一直想好好学习cmake，但是cmake的命令一直记不住，所以在这里记录了经常使用的几个命令。<br>cmake可以编译生成动态库，静态库，可执行文件。cmake主要是创建CMakLists.txt。</p>
 <p>一个CMakeLists.txt的例子：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#demo build</span></span><br><span class="line"><span class="keyword">PROJECT</span>(OgreDemo)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_MODULE_PATH <span class="string">"/usr/local/lib/OGRE/cmake;$&#123;CMAKE_MODULE_PATH&#125;"</span>)</span><br><span class="line"><span class="keyword">set</span>(OGRE_SAMPLES_INCLUDEPATH <span class="string">"/usr/local/share/OGRE/samples/Common/include/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OGRE REQUIRED)</span><br><span class="line"><span class="keyword">find_package</span>(OIS REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(HDRS ./EnvMapping.h)</span><br><span class="line"><span class="keyword">set</span>(SRCS ./EnvMapping.cpp)</span><br><span class="line"><span class="keyword">include_directories</span>( <span class="envvar">$&#123;OIS_INCLUDE_DIRS&#125;</span></span><br><span class="line">            <span class="envvar">$&#123;OGRE_INCLUDE_DIRS&#125;</span></span><br><span class="line">            <span class="envvar">$&#123;OGRE_SAMPLES_INCLUDEPATH&#125;</span></span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(OgreDemo <span class="envvar">$&#123;HDRS&#125;</span> <span class="envvar">$&#123;SRCS&#125;</span>)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(OgreDemo <span class="envvar">$&#123;OGRE_LIBRARIES&#125;</span> <span class="envvar">$&#123;OIS_LIBRARIES&#125;</span>)</span><br><span class="line">file(<span class="keyword">MAKE_DIRECTORY</span> <span class="envvar">$&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span>/dist/bin)</span><br><span class="line">file(<span class="keyword">MAKE_DIRECTORY</span> <span class="envvar">$&#123;CMAKE_CURRENT_BINARY_DIR&#125;</span>/dist/media)</span><br><span class="line"><span class="keyword">Message</span>(<span class="string">"Hominlinx--&gt;$&#123;PROJECT_BINARY_DIR&#125;\n"</span>)</span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_OUTPUT_PATH <span class="envvar">$&#123;PROJECT_BINARY_DIR&#125;</span>/dist/bin)</span><br><span class="line">``` </span><br><span class="line">里面主要包含了Cmake的变量，cmake命令等。</span><br><span class="line">```bash</span><br><span class="line"><span class="keyword">project</span>(projectname) <span class="comment">#这个执行是用来定义工程的名称。这个指令也隐含了两个cmake变量：&lt;projectname&gt;_binary_dir以及&lt;projectname&gt;_source_dir,这两个变量指的是当前工程的路径。</span></span><br><span class="line"><span class="keyword">set</span>(SRCS XXX) <span class="comment">#设置变量</span></span><br><span class="line"><span class="keyword">include_directories</span>() <span class="comment">#指定文件的搜索路径，相当于gcc的-I参数</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>() <span class="comment">#包含子目录</span></span><br><span class="line"><span class="keyword">add_executable</span>() <span class="comment">#编译可执行程序，指定编译</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>() <span class="comment">#指定链接库</span></span><br></pre></td></tr></table></figure></p>

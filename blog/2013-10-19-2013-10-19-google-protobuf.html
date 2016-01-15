@@ -6,22 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Google protobuf 的说明 | Hominlinx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络
-Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。
-Protobuf 现在最新的是2.5，在这里可以下载。">
+  <meta name="description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Google protobuf 的说明">
 <meta property="og:url" content="http://hominlinx.github.io/blog/2013-10-19-2013-10-19-google-protobuf.html">
 <meta property="og:site_name" content="Hominlinx's blog">
-<meta property="og:description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络
-Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。
-Protobuf 现在最新的是2.5，在这里可以下载。">
-<meta property="og:updated_time" content="2016-01-13T07:07:33.000Z">
+<meta property="og:description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络">
+<meta property="og:updated_time" content="2016-01-15T03:06:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google protobuf 的说明">
-<meta name="twitter:description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络
-Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。
-Protobuf 现在最新的是2.5，在这里可以下载。">
+<meta name="twitter:description" content="进入公司后，发现公司的不同模块之间的数据传输是google的protobuf，所以用该博客去学习一下这个玩意。Note：本文多源于网络">
   
     <link rel="alternative" href="/atom.xml" title="Hominlinx&#39;s blog" type="application/atom+xml">
   
@@ -241,6 +235,7 @@ Protobuf 现在最新的是2.5，在这里可以下载。">
     <div class="article-entry" itemprop="articleBody">
       
         <p>进入公司后，发现公司的不同模块之间的数据传输是google的<a href="http://code.google.com/p/protobuf/" target="_blank" rel="external">protobuf</a>，所以用该博客去学习一下这个玩意。<code>Note：本文多源于网络</code></p>
+<a id="more"></a>
 <p>Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.这是一个序列化框架。</p>
 <p>Protobuf 现在最新的是2.5，在<a href="http://code.google.com/p/protobuf/downloads/list" target="_blank" rel="external">这里</a>可以下载。</p>
 <h4 id="Protobuf_u5982_u4F55_u5DE5_u4F5C"><a href="#Protobuf_u5982_u4F55_u5DE5_u4F5C" class="headerlink" title="Protobuf如何工作"></a>Protobuf如何工作</h4><p>Protobuf使用<code>.proto</code>文件定义需要做串行化的数据结构信息。每一个ProtocolBuffer信息是一小段逻辑记录，包含一系列的键值对。  如：</p>

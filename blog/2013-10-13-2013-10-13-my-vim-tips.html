@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>my vim 设置 | Hominlinx&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的vimrc。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。
-快捷键1234567891011121314151617181920&amp;lt;C-j&amp;gt; &amp;lt;C-k&amp;gt; &amp;lt;C-h&amp;gt; &amp;lt;C-l&amp;gt; 多窗">
+  <meta name="description" content="现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的vimrc。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="my vim 设置">
 <meta property="og:url" content="http://hominlinx.github.io/blog/2013-10-13-2013-10-13-my-vim-tips.html">
 <meta property="og:site_name" content="Hominlinx's blog">
-<meta property="og:description" content="现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的vimrc。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。
-快捷键1234567891011121314151617181920&amp;lt;C-j&amp;gt; &amp;lt;C-k&amp;gt; &amp;lt;C-h&amp;gt; &amp;lt;C-l&amp;gt; 多窗">
-<meta property="og:updated_time" content="2016-01-13T07:07:33.000Z">
+<meta property="og:description" content="现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的vimrc。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。">
+<meta property="og:updated_time" content="2016-01-15T03:06:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my vim 设置">
-<meta name="twitter:description" content="现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的vimrc。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。
-快捷键1234567891011121314151617181920&amp;lt;C-j&amp;gt; &amp;lt;C-k&amp;gt; &amp;lt;C-h&amp;gt; &amp;lt;C-l&amp;gt; 多窗">
+<meta name="twitter:description" content="现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的vimrc。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。">
   
     <link rel="alternative" href="/atom.xml" title="Hominlinx&#39;s blog" type="application/atom+xml">
   
@@ -238,8 +235,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>现在我基本上在linux下基本使用Vim作为我的编辑器，所以，我写了这个blog去说明我的Vim配置，所有的配置都可以在我的<a href="https://github.com/hominlinx/vim" target="_blank" rel="external">vimrc</a>。我主要在C++/python/ruby/golang中使用vim,故配置主要涉及到这几种语言。</p>
-<h3 id="u5FEB_u6377_u952E"><a href="#u5FEB_u6377_u952E" class="headerlink" title="快捷键"></a>快捷键</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;C-j&gt; &lt;C-k&gt; &lt;C-h&gt; &lt;C-l&gt; 多窗口移动</span><br><span class="line">H 移动到行的最前端</span><br><span class="line">L 移动到行的最末端</span><br><span class="line">&lt;C-e&gt; &lt;C-y&gt; 移动屏幕</span><br><span class="line">F2 开启或关闭行号显示</span><br><span class="line">F3 开启或关闭不可见字符</span><br><span class="line">F4 开启或关闭换行功能（默认开启）</span><br><span class="line">F5 激活或取消paste模式</span><br><span class="line">F6 激活或取消语法高亮</span><br><span class="line">kj &lt;Esc&gt;,不用去角落里面找esc了</span><br><span class="line">t 在normal模式下，将光标所在行下移一行</span><br><span class="line">T 在normal模式下，将光标所在行上移一行</span><br><span class="line">，p 启动文件搜索功能（使用了插件Ctrlp）</span><br><span class="line">,,f+字符 快速移动（使用了easymotion）</span><br><span class="line">,cc 加上注释 ,cu 解开注释</span><br><span class="line">,gd 代码跳转到声明位置（YCM）</span><br><span class="line">,<span class="literal">a</span>= 按照等号切分格式化</span><br><span class="line"><span class="label">，a:</span> 按照逗号切分格式化</span><br><span class="line">，rp 启动tmux</span><br><span class="line">，vc 关闭vimux</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+<h3 id="u5FEB_u6377_u952E"><a href="#u5FEB_u6377_u952E" class="headerlink" title="快捷键"></a>快捷键</h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;C-j&gt; &lt;C-k&gt; &lt;C-h&gt; &lt;C-l&gt; 多窗口移动</span><br><span class="line">H 移动到行的最前端</span><br><span class="line">L 移动到行的最末端</span><br><span class="line">&lt;C-e&gt; &lt;C-y&gt; 移动屏幕</span><br><span class="line">F2 开启或关闭行号显示</span><br><span class="line">F3 开启或关闭不可见字符</span><br><span class="line">F4 开启或关闭换行功能（默认开启）</span><br><span class="line">F5 激活或取消paste模式</span><br><span class="line">F6 激活或取消语法高亮</span><br><span class="line">kj &lt;Esc&gt;,不用去角落里面找esc了</span><br><span class="line">t 在normal模式下，将光标所在行下移一行</span><br><span class="line">T 在normal模式下，将光标所在行上移一行</span><br><span class="line">，p 启动文件搜索功能（使用了插件Ctrlp）</span><br><span class="line">,,f+字符 快速移动（使用了easymotion）</span><br><span class="line">,cc 加上注释 ,cu 解开注释</span><br><span class="line">,gd 代码跳转到声明位置（YCM）</span><br><span class="line">,<span class="literal">a</span>= 按照等号切分格式化</span><br><span class="line"><span class="label">，a:</span> 按照逗号切分格式化</span><br><span class="line">，rp 启动tmux</span><br><span class="line">，vc 关闭vimux</span><br></pre></td></tr></table></figure>
+<!--more-->
 <p>####插件</p>
 <p>#####1. YCM<br>应当说使用vim写C++的程序员都应该使用的一款插件，但这个插件需要编译，并且自己的vim版本要高一点，现在可以使用Vim7.4了，Vim要有python的支持。具体可以参见我的<a href="https://github.com/hominlinx/vim/blob/master/README.md" target="_blank" rel="external">vimrc的readme</a>,要想在大的工程里面可以自动补全自己的库，需要修改自己的<code>.ycm_extra_conf.py</code>里面的flags。</p>
 <p>####2. UltiSnips<br>这个插件可以快速插入代码片段。可以参见<a href="https://github.com/SirVer/ultisnips" target="_blank" rel="external">官方介绍</a></p>
